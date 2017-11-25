@@ -1,0 +1,24 @@
+{% extends "base/main.html" %}
+{% block content %}
+{% include "base/header.html" %}
+    <div class="container">
+        <div class="card text-center border-danger">
+            <div class="card-header bg-danger text-white">
+                <i class="fa fa-exclamation-triangle fa-2x" aria-hidden="true"></i>
+            </div>
+            <div class="card-body">
+                <form method="post">
+                    <h2 class="card-text">{% block message %}{% endblock %}</h2>
+                    <div class="row justify-content-sm-center">
+                        <div class="col-md-2 form-group">
+                            <a class="btn btn-danger btn-block" href="{{url_for('show_catalog')}}">Cancel</a>
+                        </div>
+                        <div class="col-md-2">
+                            <button type="submit" class="btn btn-danger btn-block">Delete</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "base/addedititemtemplate.html" %}
+{% block titlecolor %}
+bg-success
+{% endblock %}
+
+{% block title %}
+New
+{% endblock %}
+
+{% block image %}
+    <img id="itemImage" class="image-wrapper rounded mx-auto d-block" src="{{url_for('static', filename='no_image_available.png')}}">
+{% endblock %}
+
+{% block category %}
+    {% for category in categories %}
+        <option value="{{category.id_category}}">{{category.name}}</option>
+    {% endfor %}
+{% endblock %}
+
+{% block btncolor1 %}
+btn-success
+{% endblock %}
+
+{% block btncolor2 %}
+btn-success
+{% endblock %}
+
+{% block btnaction %}
+Add
+{% endblock %}

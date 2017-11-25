@@ -1,0 +1,14 @@
+<div class="card-footer text-muted">
+    <div class="row">
+        <div class="col">
+            <a href="{{url_for('edit_item', category_slug=item.category.slug, item_slug=item.slug)}}" class="text-dark align-middle d-block">
+                <i class="fa fa-pencil" aria-hidden="true"></i>
+            </a>
+        </div>
+        <div class="col">
+            <a href="{{url_for('delete_item', category_slug=item.category.slug, item_slug=item.slug)}}" class="text-dark align-middle d-block">
+                <i class="fa fa-trash" aria-hidden="true"></i>
+            </a>
+        </div>
+    </div>
+</div>

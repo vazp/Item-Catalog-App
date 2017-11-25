@@ -1,0 +1,10 @@
+<div class="card-header text-dark">
+    <h6>{{item.name}}</h6>
+</div>
+<div class="card-body">
+    {% if item.image == None %}
+        <img class="rounded mx-auto d-block" src="{{url_for('static', filename='no_image_available.png')}}" alt="{{item.name}}">
+    {% else %}
+        <img class="rounded mx-auto d-block" src="{{url_for('uploads', filename=item.image)}}?{{item.random_string}}" alt="{{item.name}}">
+    {% endif %}
+</div>

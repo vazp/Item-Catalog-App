@@ -1,0 +1,31 @@
+{% extends "base/main.html" %}
+{% block content %}
+{% include "base/header.html" %}
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-auto">
+                    {% if item.image == None %}
+                        <img class="image-wrapper rounded mx-auto d-block" src="{{url_for('static', filename='no_image_available.png')}}" alt="{{item.name}}">
+                    {% else %}
+                        <img class="image-wrapper rounded mx-auto d-block" src="{{url_for('uploads', filename=item.image)}}?{{item.random_string}}" alt="{{item.name}}">
+                    {% endif %}
+                </div>
+                <div class="col">
+                    <div class="card">
+                        <div class="card-header">
+                            {% block itemname %}
+                            {% endblock %}
+                        </div>
+                        <div class="card-body">
+                            <h6 class="card-title">{{item.category.name}}</h6>
+                            <p class="card-text">{{item.description}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

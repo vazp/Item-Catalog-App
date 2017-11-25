@@ -1,0 +1,30 @@
+{% extends "base/catalogtemplate.html" %}
+{% block categoryheader %}
+    <h3>Categories</h3>
+{% endblock %}
+
+{% block categorylist %}
+    {% if categories %}
+        {% for category in categories %}
+            <a href="{{url_for('show_category', category_slug=category.slug)}}" class="list-group-item list-group-item-action">
+                {{category.name}}
+            </a>
+        {% endfor %}
+    {% else %}
+        <div class="container-fluid">
+            <div class="col text-center">
+                <h5>No categories to show</h3>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block itemsheader %}
+    {% block itemtitle %}
+    {% endblock %}
+{% endblock %}
+
+{% block itemlist %}
+    {% block items %}
+    {% endblock %}
+{% endblock %}

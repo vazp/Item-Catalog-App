@@ -1,0 +1,44 @@
+{% extends "base/addedititemtemplate.html" %}
+{% block titlecolor %}
+bg-warning
+{% endblock %}
+
+{% block title %}
+Edit
+{% endblock %}
+
+{% block image %}
+    {% if item.image == None %}
+        <img id="itemImage" class="image-wrapper rounded mx-auto d-block" src="{{url_for('static', filename='no_image_available.png')}}">
+    {% else %}
+        <img class="image-wrapper rounded mx-auto d-block" src="{{url_for('uploads', filename=item.image)}}?{{item.random_string}}" alt="{{item.name}}">
+    {% endif %}
+{% endblock %}
+
+{% block category %}
+    {% for category in categories %}
+        {% if category.name == item.category.name%}
+            <option value="{{category.id_category}}" selected>{{category.name}}</option>
+        {% else %}
+            <option value="{{category.id_category}}">{{category.name}}</option>
+        {% endif%}
+    {% endfor %}
+{% endblock %}
+
+{% block itemname %}
+{{item.name}}
+{% endblock %}
+
+{% block itemdescription %}{{item.description}}{% endblock %}
+
+{% block btncolor1 %}
+btn-warning text-white
+{% endblock %}
+
+{% block btncolor2 %}
+btn-warning text-white
+{% endblock %}
+
+{% block btnaction %}
+Edit
+{% endblock %}

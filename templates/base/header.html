@@ -1,0 +1,29 @@
+<header class="header container-fluid bg-dark">
+    <div class="navbar navbar-dark">
+        <a class="navbar-brand" href="{{url_for('show_catalog')}}">
+            <i class="homeIcon fa fa-home fa-2x d-inline-block align-middle" aria-hidden="true"></i>
+            <span class="h1 align-middle">Item Catalog App</span>
+        </a>
+        <div class="navbar-right">
+            {%if 'username' not in session %}
+            <button id="customBtn" class="btn btn-outline-light">
+                <i class="login-icon fa fa-google fa-lg d-inline-block align-middle" aria-hidden="true"></i>
+                Sign in
+            </button>
+            {% else %}
+            <button type="button" class="btn btn-outline-light" onclick="signOut();">Sign out</button>
+            {% endif %}
+        </div>
+    </div>
+    <div class="row bg-info text-white text-center">
+        <div class="col">
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <h4 class="text-center">{{ message }}</h4>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+        </div>
+    </div>
+</header>
